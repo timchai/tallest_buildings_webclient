@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Location</th>
+    <th>Height</th>
+  </tr>
+<% @buildings.each do |building| %>
+  <tr>
+    <td><%= building.location %></td>
+    <td><%= building.height %></td>
+  </td>
+<% end %>
+</table>

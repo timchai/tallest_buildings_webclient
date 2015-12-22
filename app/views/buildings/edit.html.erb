@@ -1,0 +1,15 @@
+<h1>Edit Building</h1>
+
+<%= form_tag "/buildings/#{@building.id}", method: :patch do %>
+<div>
+  <%= label_tag :location %>
+  <%= text_field_tag :location, @building.location %>
+</div>
+<div>
+  <%= label_tag :height %>
+  <%= text_field_tag :height, @building.height %>
+</div>
+
+  <%= submit_tag "Update Building" %>
+
+<% end %>

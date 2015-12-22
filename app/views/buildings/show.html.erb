@@ -1,0 +1,6 @@
+<ul>
+  <li><%= @building.location %></li>
+  <li><%= @building.height %></li>
+</ul>
+
+<%= link_to "Delete", "/buildings/#{params[:id]}", method: :delete %>

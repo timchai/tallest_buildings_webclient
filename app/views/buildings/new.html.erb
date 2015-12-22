@@ -1,0 +1,13 @@
+<%= form_tag "/buildings" do %>
+<div>
+  <%= label_tag "location" %>
+  <%= text_field_tag "location" %>
+</div>
+<div>
+  <%= label_tag "height" %>
+  <%= text_field_tag "height" %>
+</div>
+
+  <%= submit_tag "Create Building" %>
+
+<% end %>
