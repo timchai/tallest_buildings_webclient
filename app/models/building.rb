@@ -14,7 +14,7 @@ class Building
 
   def self.all
     buildings = []
-    building_hashes = Unirest.get("http://localhost:3000/buildings/api/v1").body
+    building_hashes = Unirest.get("http://localhost:3000/api/v1/buildings.json").body
     building_hashes.each do |building_hash|
       buildings << Building.new(building_hash)
     end
@@ -22,21 +22,21 @@ class Building
   end
 
   def self.find(id)
-    building_hash = Unirest.get("http://localhost:3000/buildings/#{id}.json").body
+    building_hash = Unirest.get("http://localhost:3000/api/v1/buildings/#{id}.json").body
     Building.new(building_hash)
   end
 
   def destroy
-    Unirest.delete("http://localhost:3000/buildings/#{id}.json").body
+    Unirest.delete("http://localhost:3000/api/v1/buildings/#{id}.json").body
   end
 
   def self.create(attributes)
-    building_hash = Unirest.post("http://localhost:3000/buildings.json", headers: {"Accept" => "application/json"}, parameters: attributes).body
+    building_hash = Unirest.post("http://localhost:3000/api/v1/buildings.json", headers: {"Accept" => "application/json"}, parameters: attributes).body
     Building.new(building_hash)
   end
 
   def update(attributes)
-    building_hash = Unirest.patch("http://localhost:3000/buildings#{id}.json", headers: {"Accept" => "application/json"}, parameters: attributes).body
+    building_hash = Unirest.patch("http://localhost:3000/api/v1/buildings/#{id}.json", headers: {"Accept" => "application/json"}, parameters: attributes).body
     Building.new(building_hash)
   end
 end
